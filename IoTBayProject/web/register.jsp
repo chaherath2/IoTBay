@@ -14,40 +14,14 @@
     <body>
         <h1>Register</h1>
         <form action="welcome.jsp" method="post">
-            <label for="email">Email:</label>
-            <input type="email" name="email"  required><br>
+            <table>
+                <tr><td>Email:</td><td><input type="email" name="email"  placeholder="Enter Email" required></td></tr>
+                <tr><td>Name:</td><td><input type="text" name="name"  placeholder="Enter Name" required></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="password"  placeholder="Enter Password" minlength="8" required></td></tr>
+                <tr><td>Date of Birth:</td><td><input type="date" name="birthday"  required></input></td></tr>
+                <tr><td>Agree to TOS:</td><td><input type="radio" name="tos" value="Yes">Yes</input><input type="radio" name="tos" value="No">No</input></td></tr>
+            </table>
             
-            <br>
-            
-            <label for="name">Name:</label>
-            <input type="text" name="name" required><br>
-            
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" minlength="8" required><br>
-            
-            <br>
-            
-            <label for="gender">Gender:</label>
-            <input type="radio" name="gender" value="Male">Male</input>
-            <input type="radio" name="gender" value="Female">Female</input>
-            <input type="radio" name="gender" value="Other">Other</input><br>      
-            <br>
-            
-            <label for="DOB">Date of Birth:</label>
-            <input type="date" name="birthday"  required></input><br>       
-            <br>
-
-            <label for="phone">Phone Number:</label>
-            <input type="number" name="phone" value="04" minlength="8" maxlength ="8" required></input><br>
-            
-            <br>
-            
-            <label for="tos">Agree to TOS: </label>
-            <input type="radio" name="tos" value="Yes">Yes</input>
-            <input type="radio" name="tos" value="No">No</input>
-            
-            <br>   
 
             <input type="submit" value="Register">
         </form>

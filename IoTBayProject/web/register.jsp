@@ -18,7 +18,7 @@
                 <tr><td>Email:</td><td><input type="email" name="email"  placeholder="Enter Email" required></td></tr>
                 <tr><td>Name:</td><td><input type="text" name="name"  placeholder="Enter Name" required></td></tr>
                 <tr><td>Password:</td><td><input type="password" name="password"  placeholder="Enter Password" minlength="8" required></td></tr>
-                <tr><td>Date of Birth:</td><td><input type="date" name="birthday"  required></input></td></tr>
+                <tr><td>Date of Birth:</td><td><input type="date" name="DOB"  required></input></td></tr>
                 <tr><td>Agree to TOS:</td><td><input type="radio" name="tos" value="Yes">Yes</input><input type="radio" name="tos" value="No">No</input></td></tr>
             </table>
             

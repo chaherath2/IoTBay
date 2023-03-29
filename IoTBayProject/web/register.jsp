@@ -34,6 +34,10 @@
             <input type="radio" name="gender" value="Other">Other</input><br>      
             <br>
             
+            <label for="DOB">Date of Birth:</label>
+            <input type="date" name="birthday"  required></input><br>       
+            <br>
+
             <label for="phone">Phone Number:</label>
             <input type="number" name="phone" value="04" minlength="8" maxlength ="8" required></input><br>
             

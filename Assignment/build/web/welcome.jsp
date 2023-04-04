@@ -18,18 +18,30 @@
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String dob = request.getParameter("dob");
+            String tos = request.getParameter("tos");
         %>
+        <%
+        String validate = "No";
+         if (validate.equals(tos)){
+            
+        %>
+        <p>Sorry, you must agree to the Terms of Service.</p>
+        <p>Click <a href='register.jsp'>here</a> to go back</p>
+
         
+        <% } else{ %>
+        %>
         <h1>Welcome <%=name%></h1>
         <p>Your email is: <%=email%></p>
         <p>Your password is: <%=password%></p>
         <p>Your DOB is: <%=dob%></p>
         <a href="index.jsp">Cancel</a>
         <a href="main.jsp">Main</a>
-        
+        <%}%>
         <%
             Customer customer = new Customer(name, email, password, dob);
             session.setAttribute("customer", customer);
         %>
+        
     </body>
 </html>

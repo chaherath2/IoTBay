@@ -1,7 +1,7 @@
 <%-- 
-    Document   : login
-    Created on : 29/03/2023, 1:57:08 PM
-    Author     : chahe
+    Document   : register
+    Created on : 15/03/2023, 2:07:00 PM
+    Author     : ericp
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,16 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css"> 
         <title>IoTBay - Login</title>
     </head>
     <body>
         <h1>Login</h1>
         <form action="welcome.jsp" method="post">
             <table>
-                <tr><td>Email:</td><td><input type="email" name="email"  placeholder="Enter Email" required></td></tr>
-                <tr><td>Password:</td><td><input type="password" name="password"  placeholder="Enter Password" minlength="8" required></td></tr>
+                <tr><td class="inputlabel">Email:</td><td><input type="email" name="email"  placeholder="Enter Email" required></td></tr>
+                <tr><td class="inputlabel">Name:</td><td><input type="text" name="name"  placeholder="Enter Name" required></td></tr>
+                <tr><td class="inputlabel">Password:</td><td><input type="password" name="password"  placeholder="Enter Password" minlength="8" required></td></tr>
             </table>
-            <input type="submit" value="login">
+            <div>
+                <a href="index.jsp">Cancel</a>
+                <input type="submit" class="submitbutton" value="Login">
+            </div>
         </form>
     </body>
 </html>

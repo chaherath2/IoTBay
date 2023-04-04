@@ -1,0 +1,74 @@
+/*
+*/
+/* 
+    Created on : 4 Apr 2023, 4:06:07 pm
+    Author     : shawaiz
+*/
+
+h1 {
+    color: #1AAD3E;
+    font-family: sans-serif;
+}
+
+a:link, a:visited {
+    background-color: #8EDEA1;
+    color: black;
+    font-family: sans-serif;
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #5FA871;
+}
+
+.submitbutton {
+    background-color: #8EDEA1;
+    color: black;
+    border: none;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.submitbutton:hover {
+    background-color: #5FA871;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=date]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.inputlabel {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold; 
+}
+
+#customer {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+#customer th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1AAD3E;
+    color: white;
+}
+
+#customer td, #customer th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}

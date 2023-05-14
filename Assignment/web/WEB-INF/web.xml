@@ -1,34 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
-xml version="1.0" encoding="UTF-8"?>
+    <servlet>
+        <servlet-name>ConnServlet</servlet-name>
+        <servlet-class>controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>addDevice</servlet-name>
+        <servlet-class>controller.AddDeviceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showDevices</servlet-name>
+        <servlet-class>controller.SelectAllDevicesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateDevice</servlet-name>
+        <servlet-class>controller.UpdateDeviceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteDevice</servlet-name>
+        <servlet-class>controller.DeleteDeviceServlet</servlet-class>
+    </servlet>
 
-   <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaeeLinks to an external site." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instanceLinks to an external site." xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaeeLinks to an external site. http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsdLinks to an external site.">
+    <servlet-mapping>
+        <servlet-name>addDevice</servlet-name>
+        <url-pattern>/addDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showDevices</servlet-name>
+        <url-pattern>/showDevices</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateDevice</servlet-name>
+        <url-pattern>/updateDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteDevice</servlet-name>
+        <url-pattern>/deleteDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
+    </servlet-mapping>
 
-       <servlet>
 
-           <servlet-name>ConnServlet </servlet-name>
-
-           <servlet-class>uts.isd.controller.ConnServlet </servlet-class>
-
-           <load-on-startup>0</load-on-startup>
-
-       </servlet>
-
-       <servlet-mapping>
-
-           <servlet-name>ConnServlet </servlet-name>
-
-           <url-pattern>ConnServlet </url-pattern>
-
-        <servlet-mapping>
-
-       <session-config>
-
-           <session-timeout>
-
-               30
-
-           </session-timeout>
-
-      </session-config>
-
- </web-app>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

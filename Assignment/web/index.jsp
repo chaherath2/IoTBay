@@ -19,5 +19,4 @@
             <a href="login.jsp">Login</a>
         </div>
     </body>
-    <jsp:include page="/ConnServlet" flush="true" />
 </html>

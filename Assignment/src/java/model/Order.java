@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+import java.time.LocalDate;
 
 /**
  *
@@ -14,16 +15,18 @@ public class Order {
     private int userID;
     private String email;
     private String phone;
+    private LocalDate orderPlaced;
     private double totalPrice;
     private double includedGST;
     private String shippingAddress;
     private String billingAddress;
 
-    public Order(int orderID, int userID, String email, String phone, double totalPrice, double includedGST, String shippingAddress, String billingAddress) {
+    public Order(int orderID, int userID, String email, String phone, LocalDate orderPlaced, double totalPrice, double includedGST, String shippingAddress, String billingAddress) {
         this.orderID = orderID;
         this.userID = userID;
         this.email = email;
         this.phone = phone;
+        this.orderPlaced = orderPlaced;
         this.totalPrice = totalPrice;
         this.includedGST = includedGST;
         this.shippingAddress = shippingAddress;
@@ -62,6 +65,14 @@ public class Order {
         this.phone = phone;
     }
 
+    public LocalDate getOrderPlaced() {
+        return orderPlaced;
+    }
+
+    public void setOrderPlaced(LocalDate orderPlaced) {
+        this.orderPlaced = orderPlaced;
+    }
+
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -93,6 +104,7 @@ public class Order {
     public void setBillingAddress(String billingAddress) {
         this.billingAddress = billingAddress;
     }
-    
+
+
     
 }

@@ -15,15 +15,59 @@ public class DBDeviceManager {
     public DBDeviceManager(Connection conn) throws SQLException {
         this.conn = conn;
     }
+    public Device selectOneDevices(String deviceName) throws SQLException {
+        PreparedStatement selectStatement = conn.prepareStatement("SELECT * FROM device WHERE DEVICENAME='" + deviceName + "'");
+        ResultSet rs = selectStatement.executeQuery();
+        while (rs.next()){
+            String selectedDeviceName = rs.getString(3);
+        if (selectedDeviceName.equals(deviceName)){
+            Long id = rs.getLong(1);
+            int deviceId = rs.getInt(2);
+            deviceName = rs.getString(3);
+            String deviceDescription = rs.getString(4);
+            Double price = rs.getDouble(5);
+            Integer stock = rs.getInt(6);
+            Long cTime = rs.getLong(7);
+            Long uTime = rs.getLong(8);
+            Boolean availability = rs.getBoolean(9);
+            Integer type = rs.getInt(10);
+            return new Device (id, deviceId, type, deviceName, deviceDescription, price, stock, cTime, uTime, availability);
+        }
+    }
+        return null;
+    }
 
+    
+        public Device selectOneDeviceID(int deviceId) throws SQLException {
+        PreparedStatement selectStatement = conn.prepareStatement("SELECT * FROM device WHERE DEVICENAME='" + deviceId + "'");
+        ResultSet rs = selectStatement.executeQuery();
+        while (rs.next()){
+            int selectedDeviceId = rs.getInt(2);
+        if (selectedDeviceId == deviceId){
+            Long id = rs.getLong(1);
+            deviceId = rs.getInt(2);
+            String deviceName = rs.getString(3);
+            String deviceDescription = rs.getString(4);
+            Double price = rs.getDouble(5);
+            Integer stock = rs.getInt(6);
+            Long cTime = rs.getLong(7);
+            Long uTime = rs.getLong(8);
+            Boolean availability = rs.getBoolean(9);
+            Integer type = rs.getInt(10);
+            return new Device (id, deviceId, type, deviceName, deviceDescription, price, stock, cTime, uTime, availability);
+        }
+    }
+        return null;
+    }
+
+    
     public List<Device> selectAllDevices() throws SQLException {
         PreparedStatement selectStatement = conn.prepareStatement("SELECT * FROM device");
         ResultSet rs = selectStatement.executeQuery();
         List<Device> devices = new ArrayList<>();
         while (rs.next()){
             Long id = rs.getLong(1);
-            String deviceId = rs.getString(2);
-
+            int deviceId = rs.getInt(2);
             String deviceName = rs.getString(3);
             String deviceDescription = rs.getString(4);
             Double price = rs.getDouble(5);
@@ -48,7 +92,7 @@ public class DBDeviceManager {
         updateStatement.setDouble(4, device.getPrice());
         updateStatement.setInt(5, device.getStock());
         updateStatement.setLong(6, System.currentTimeMillis());
-        updateStatement.setLong(7, device.getId());
+        updateStatement.setInt(7, device.getDeviceId());
         updateStatement.executeUpdate();
         updateStatement.close();
     }
@@ -65,7 +109,7 @@ public class DBDeviceManager {
         String sql = "insert into device(device_id, device_type, device_name, device_description, price, stock, cTime, uTime, availability)" +
                 "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement insertStatement = conn.prepareStatement(sql);
-        insertStatement.setString(1, device.getDeviceId());;
+        insertStatement.setInt(1, device.getDeviceId());;
         insertStatement.setInt(2, device.getType());
         insertStatement.setString(3, device.getDeviceName());
         insertStatement.setString(4, device.getDeviceDescription());

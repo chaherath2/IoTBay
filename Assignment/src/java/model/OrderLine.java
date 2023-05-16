@@ -5,43 +5,102 @@
  */
 package model;
 
-import java.text.DecimalFormat;
-
 /**
  *
  * @author eric
  */
 public class OrderLine {
-    private Device product;
-    private int quantity;
+    private int orderID;
+    private int orderlineID;
+    private int itemQuantity;
+    private int productID;
+    private String productName;
+    private double GST;
+    private double price;
+    private double totalPrice;
 
-    public OrderLine(Device product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
+    public OrderLine(int orderID, int orderlineID, int itemQuantity, int productID, String productName, double GST, double price, double totalPrice) {
+        this.orderID = orderID;
+        this.orderlineID = orderlineID;
+        this.itemQuantity = itemQuantity;
+        this.productID = productID;
+        this.productName = productName;
+        this.GST = GST;
+        this.price = price;
+        this.totalPrice = GST + (price * itemQuantity);
     }
 
-    public OrderLine() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getOrderID() {
+        return orderID;
     }
 
-    public Device getProduct() {
-        return product;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
-    public void setProduct(Device product) {
-        this.product = product;
+    public int getOrderlineID() {
+        return orderlineID;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public void setOrderlineID(int orderlineID) {
+        this.orderlineID = orderlineID;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public int getItemQuantity() {
+        return itemQuantity;
     }
 
-    public double getSumPrice() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        return Double.parseDouble(df.format(product.getPrice() * quantity));
+    public void setItemQuantity(int itemQuantity) {
+        this.itemQuantity = itemQuantity;
+    }
+
+    public void addItemQuantity(){
+        this.itemQuantity++;
+        this.totalPrice = this.totalPrice + GST +(price * itemQuantity);
+    }
+    
+    public void removeItemQuantity(){
+        this.itemQuantity--;
+        this.totalPrice = this.totalPrice - GST +(price * itemQuantity);
+    }
+    
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public double getGST() {
+        return GST;
+    }
+
+    public void setGST(double GST) {
+        this.GST = GST;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = this.GST + (this.price * this.itemQuantity);
     }
 }

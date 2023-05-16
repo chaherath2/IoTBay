@@ -4,7 +4,7 @@ public class Device {
 
     private Long id; // auto-increment primary key
 
-    private int deviceId; // device id
+    private String deviceId; // device id
 
     private int type; // type of device. eg: 0-healthcare devices 1-smart home devices etc.
 
@@ -28,7 +28,7 @@ public class Device {
     }
 
     //all-args constructor
-    public Device(Long id, int deviceId, int type, String deviceName, String deviceDescription, Double price, Integer stock, Long cTime, Long uTime, Boolean isAvailable) {
+    public Device(Long id, String deviceId, int type, String deviceName, String deviceDescription, Double price, Integer stock, Long cTime, Long uTime, Boolean isAvailable) {
         this.id = id;
         this.deviceId = deviceId;
         this.type = type;
@@ -42,7 +42,7 @@ public class Device {
     }
 
 
-    public void setDeviceId(int deviceId) {
+    public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
 
@@ -82,7 +82,7 @@ public class Device {
         return id;
     }
 
-    public int getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 

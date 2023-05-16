@@ -1,50 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>controller.ConnServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>addDevice</servlet-name>
-        <servlet-class>controller.AddDeviceServlet</servlet-class>
+        <servlet-name>Validator</servlet-name>
+        <servlet-class>controller.Validator</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>showDevices</servlet-name>
-        <servlet-class>controller.SelectAllDevicesServlet</servlet-class>
+        <servlet-name>Cart</servlet-name>
+        <servlet-class>controller.Cart</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>updateDevice</servlet-name>
-        <servlet-class>controller.UpdateDeviceServlet</servlet-class>
+        <servlet-name>DeleteOrder</servlet-name>
+        <servlet-class>controller.DeleteOrder</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>deleteDevice</servlet-name>
-        <servlet-class>controller.DeleteDeviceServlet</servlet-class>
+        <servlet-name>DisplayCompletedOrderServlet</servlet-name>
+        <servlet-class>controller.DisplayCompletedOrderServlet</servlet-class>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>addDevice</servlet-name>
-        <url-pattern>/addDevice</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>showDevices</servlet-name>
-        <url-pattern>/showDevices</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>updateDevice</servlet-name>
-        <url-pattern>/updateDevice</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>deleteDevice</servlet-name>
-        <url-pattern>/deleteDevice</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShippingOrderDetailsServlet</servlet-name>
+        <servlet-class>controller.ShippingOrderDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerCartServlet</servlet-name>
+        <servlet-class>controller.CustomerCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerOrderServlet</servlet-name>
+        <servlet-class>controller.CustomerOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Payment_CreateOrderServlet</servlet-name>
+        <servlet-class>controller.Payment_CreateOrderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
-
-
+    <servlet-mapping>
+        <servlet-name>Validator</servlet-name>
+        <url-pattern>/Validator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cart</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrder</servlet-name>
+        <url-pattern>/DeleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayCompletedOrderServlet</servlet-name>
+        <url-pattern>/DisplayCompletedOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShippingOrderDetailsServlet</servlet-name>
+        <url-pattern>/ShippingOrderDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerCartServlet</servlet-name>
+        <url-pattern>/CustomerCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerOrderServlet</servlet-name>
+        <url-pattern>/CustomerOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Payment_CreateOrderServlet</servlet-name>
+        <url-pattern>/Payment_CreateOrderServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

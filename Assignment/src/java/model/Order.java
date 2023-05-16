@@ -4,39 +4,54 @@
  * and open the template in the editor.
  */
 package model;
-
+import java.io.Serializable;
 /**
  *
  * @author eric
  */
-public class Order {
+public class Order implements Serializable{
+    private static int numberOfOrders = 0;
     private int orderID;
     private int userID;
-    private String email;
-    private String phone;
+    private String orderDate;
+    private double tax;
     private double totalPrice;
-    private double includedGST;
     private String shippingAddress;
     private String billingAddress;
+    
+    
+    public Order() {
+    
+    }
 
-    public Order(int orderID, int userID, String email, String phone, double totalPrice, double includedGST, String shippingAddress, String billingAddress) {
+    public Order(int userID) {
+        
+        this.orderID = Order.numberOfOrders;
+        Order.numberOfOrders++;
+        this.userID = userID;
+    }
+
+    public Order(int orderID, int userID, String orderDate, double tax, double totalPrice, String shippingAddress, String billingAddress) {
         this.orderID = orderID;
         this.userID = userID;
-        this.email = email;
-        this.phone = phone;
+        this.orderDate = orderDate;
+        this.tax = tax;
         this.totalPrice = totalPrice;
-        this.includedGST = includedGST;
         this.shippingAddress = shippingAddress;
         this.billingAddress = billingAddress;
     }
-
+    
+    
+    
+    
     public int getOrderID() {
         return orderID;
     }
-
+    
     public void setOrderID(int orderID) {
         this.orderID = orderID;
     }
+
 
     public int getUserID() {
         return userID;
@@ -46,20 +61,20 @@ public class Order {
         this.userID = userID;
     }
 
-    public String getEmail() {
-        return email;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public String getPhone() {
-        return phone;
+    public double getTax() {
+        return tax;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTax(double tax) {
+        this.tax = tax;
     }
 
     public double getTotalPrice() {
@@ -68,14 +83,6 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
-    }
-
-    public double getIncludedGST() {
-        return includedGST;
-    }
-
-    public void setIncludedGST(double includedGST) {
-        this.includedGST = includedGST;
     }
 
     public String getShippingAddress() {
@@ -94,5 +101,12 @@ public class Order {
         this.billingAddress = billingAddress;
     }
     
+    public void updatePrice(double price, int quantity) {
+        this.totalPrice = this.totalPrice + (price*quantity);
+    }
+    
+    public void deleteOrderLine(double totalPrice) {
+        this.totalPrice = this.totalPrice - totalPrice;
+    }
     
 }

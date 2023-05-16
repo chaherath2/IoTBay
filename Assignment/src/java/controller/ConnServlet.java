@@ -20,7 +20,6 @@ public class ConnServlet extends HttpServlet {
     private DBConnector db;
     private DBManager manager;
     private Connection conn;
-    private DBDeviceManager dbDeviceManager;
 
 
 @Override //Create and instance of DBConnector for the deployment session
@@ -51,7 +50,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
     try {
 
         manager = new DBManager(conn);
-        dbDeviceManager = new DBDeviceManager(conn);
 
     } catch (SQLException ex) {
 
@@ -61,8 +59,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 
     //export the DB manager to the view-session (JSPs)
 
-    session.setAttribute("manager", manager);
-    session.setAttribute("dbDeviceManager", dbDeviceManager);
+    session.setAttribute("manager", manager);           
+
 }   
 
 

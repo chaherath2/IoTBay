@@ -1,82 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uts.isd.model.dao;
-import model.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-//import java.util.Date;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import model.*;
+import uts.isd.assignment.*;
 /**
- *
+ * 
  * @author eric
  */
 public class DBOrderManager {
-    private final Statement statement;
-    private final Connection conn;
-    public DBOrderManager(Connection connection) throws SQLException {
-    this.conn = connection;
-    statement = connection.createStatement();
+    private Statement st; //used to execute SQL queries within java code
+    
+    public DBOrderManager(Connection conn) throws SQLException {
+        st = conn.createStatement();
     }
-       public void addOrder(String customerEmail, String paymentMethod, int deviceID, Timestamp dateOrdered, double totalPrice,
-        double shipmentPrice, String shipmentType, String status, String streetAddress, String unitNumber, String city,
-        String state, String postalCode, String phoneNumber) throws SQLException {
+    
+    public Order findOrder(int oID, int uID) throws SQLException {
+        String fetch = "select * from IOTBAY.ORDERS where orderID = " + oID + " and userID='" + uID + "'";
+        ResultSet rs = st.executeQuery(fetch);
         
-       //create the order for sql
-       String query = "insert into customerorder (customerEmail, paymentMethod, deviceID, dateOrdered, totalPrice, shipmentPrice, shipmentType, status,unitNumber, streetAddress, city, state, postalCode, phoneNumber ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-       PreparedStatement addStatement = conn.prepareStatement(query);
-       //placing all parameters into the query
-        addStatement.setString(1, customerEmail);
-        addStatement.setString(2, paymentMethod);
-        addStatement.setInt(3, deviceID);
-        addStatement.setTimestamp(4, dateOrdered);
-        addStatement.setDouble(5, totalPrice);
-        addStatement.setDouble(6, shipmentPrice);
-        addStatement.setString(7, shipmentType);
-        addStatement.setString(8, status);
-        addStatement.setString(9, unitNumber);
-        addStatement.setString(10, streetAddress);
-        addStatement.setString(11, city);
-        addStatement.setString(12, state);
-        addStatement.setString(13, postalCode);
-        addStatement.setString(14, phoneNumber);
-        addStatement.executeUpdate();
+        while (rs.next()) {  // reads every row in USERS table and gets the result by index and stores them into Strings
+            int orderID = rs.getInt(1);
+            int userID = rs.getInt(2);
+            if (orderID == oID && userID == uID) {
+                String orderDate = rs.getString(3);
+                double tax = rs.getInt(4);
+                double totalPrice = rs.getDouble(5);
+                String shippingAddress = rs.getString(6);
+                String billingAddress = rs.getString(7);
+                return new Order(orderID, userID, orderDate, tax, totalPrice, shippingAddress, billingAddress);
+                
+            }
+            
+        }
+        return null;
     }
-       
-       public void updateCustomerOrder(int orderID, String customerEmail, String paymentMethod, int deviceID, 
-                                                                Timestamp dateOrdered, double totalPrice, double shipmentPrice, String shipmentType, String status, 
-                                                                String streetAddress, String unitNumber, String city, String state, String postalCode, 
-                                                                String phoneNumber) throws SQLException{
-                String query = "UPDATE IOTUSER.customerOrder set customerEmail=?, paymentMethod=?, deviceID=?, dateOrdered=?, totalPrice=?, shipmentPrice=?, shipmentType=?, status=?, streetAddress=?, unitNumber=?, city=?, state=?. postalCode=?, phoneNumber=?";
-                PreparedStatement updateStatement = conn.prepareStatement(query);
-                        updateStatement.setString(1, customerEmail);
-                        updateStatement.setString(2, paymentMethod);
-                        updateStatement.setInt(3, deviceID);
-                       updateStatement.setTimestamp(4, dateOrdered);
-                        updateStatement.setDouble(5, totalPrice);
-                        updateStatement.setDouble(6, shipmentPrice);
-                        updateStatement.setString(7, shipmentType);
-                        updateStatement.setString(8, status);
-                        updateStatement.setString(9, unitNumber);
-                       updateStatement.setString(10, streetAddress);
-                       updateStatement.setString(11, city);
-                        updateStatement.setString(12, state);
-                        updateStatement.setString(13, postalCode);
-                        updateStatement.setString(14, phoneNumber);
-                        updateStatement.executeUpdate();
-                        updateStatement.close();
-       }
-       
+    
+    public void addOrder(int orderID, int userID) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAY.ORDERS VALUES ("+orderID+", '" +userID+"', null, null, null, null, null)");
+              
+        
+          
+    }
+    
+    public void updateOrder(int orderID, int userID, String orderDate, double tax, double totalPrice, String shippingAddress, String billingAddress) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAY.ORDERS SET ORDERDATE='"+orderDate+"',TAX="+tax+",TOTALPRICE="+totalPrice+",SHIPPINGADDRESS='"+shippingAddress+"',BILLINGADDRESS='"+billingAddress+"' WHERE ORDERID="+orderID + " AND USERID='"+userID+"'");
+    }
+    
     public void deleteOrder(int orderID) throws SQLException {
-        statement.executeUpdate("DELETE FROM IOTUSER.CUSTOMERORDER WHERE ORDERID=" + orderID + "");
+        st.executeUpdate("DELETE FROM IOTBAY.ORDERS WHERE ORDERID=" +orderID+"");
     }
+    
+    public ArrayList<Order> fetchOrders(int userID) throws SQLException {
+        String fetch = "select * from ORDERS where USERID='"+userID+"'";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Order> temp = new ArrayList();
+        
+        while (rs.next()) {
+            int orderID = rs.getInt(1);
+            String orderDate = rs.getString(3);
+            double tax = rs.getDouble(4);
+            double totalPrice = rs.getDouble(5);
+            String shippingAddress = rs.getString(6);
+            String billingAddress = rs.getString(7);
+            temp.add(new Order(orderID, userID, orderDate, tax, totalPrice, shippingAddress, billingAddress));
+        }
+        return temp;
+    }
+    
+    
     
 }

@@ -5,37 +5,49 @@
  */
 package model;
 
+import java.io.Serializable;
+import java.text.DecimalFormat;
+
 /**
  *
  * @author eric
  */
-public class OrderLine {
-    private int orderID;
+public class OrderLine implements Serializable{
+    private static int numberOfOrderLine = 0;
     private int orderlineID;
-    private int itemQuantity;
+    private int orderID;
+    private int quantity;
     private int productID;
     private String productName;
-    private double GST;
-    private double price;
     private double totalPrice;
+    private double price;
+    
+    
+    public OrderLine() {
+    }
 
-    public OrderLine(int orderID, int orderlineID, int itemQuantity, int productID, String productName, double GST, double price, double totalPrice) {
+    public OrderLine(int orderID, int quantity, int productID, String productName, double price) {
+        this.orderlineID = OrderLine.numberOfOrderLine;
         this.orderID = orderID;
-        this.orderlineID = orderlineID;
-        this.itemQuantity = itemQuantity;
+        this.quantity = quantity;
         this.productID = productID;
         this.productName = productName;
-        this.GST = GST;
         this.price = price;
-        this.totalPrice = GST + (price * itemQuantity);
+        this.totalPrice = quantity * price;
+        
+        OrderLine.numberOfOrderLine++;
     }
-
-    public int getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(int orderID) {
+    
+    
+    
+    public OrderLine(int orderlineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) {
+        this.orderlineID = orderlineID;
         this.orderID = orderID;
+        this.quantity = quantity;
+        this.productID = productID;
+        this.productName = productName;
+        this.totalPrice = totalPrice;
+        this.price = price;
     }
 
     public int getOrderlineID() {
@@ -46,22 +58,31 @@ public class OrderLine {
         this.orderlineID = orderlineID;
     }
 
-    public int getItemQuantity() {
-        return itemQuantity;
+    public int getOrderID() {
+        return orderID;
     }
 
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
-    public void addItemQuantity(){
-        this.itemQuantity++;
-        this.totalPrice = this.totalPrice + GST +(price * itemQuantity);
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
-    public void removeItemQuantity(){
-        this.itemQuantity--;
-        this.totalPrice = this.totalPrice - GST +(price * itemQuantity);
+    public void addQuantity() {
+        this.quantity++;
+        this.totalPrice = this.totalPrice + (quantity*price);
+    }
+
+    public int decreaseQuantity() {
+        this.quantity--;
+        this.totalPrice = this.totalPrice - (quantity*price);
+        return this.quantity;
     }
     
     public int getProductID() {
@@ -80,12 +101,12 @@ public class OrderLine {
         this.productName = productName;
     }
 
-    public double getGST() {
-        return GST;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setGST(double GST) {
-        this.GST = GST;
+    public void setTotalPrice() {
+        this.totalPrice = this.price * this.quantity;
     }
 
     public double getPrice() {
@@ -96,11 +117,7 @@ public class OrderLine {
         this.price = price;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = this.GST + (this.price * this.itemQuantity);
-    }
+    
+    
 }
+

@@ -1,7 +1,7 @@
 <%-- 
     Document   : ConfirmShipping
     Created on : 16/05/2023, 5:58:50 PM
-    Author     : User
+    Author     : eric
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

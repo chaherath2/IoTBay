@@ -1,21 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <servlet>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <servlet-class>controller.AddToCartServlet</servlet-class>
-    </servlet>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>addDevice</servlet-name>
+        <servlet-class>controller.AddDeviceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showDevices</servlet-name>
+        <servlet-class>controller.SelectAllDevicesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateDevice</servlet-name>
+        <servlet-class>controller.UpdateDeviceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteDevice</servlet-name>
+        <servlet-class>controller.DeleteDeviceServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <url-pattern>/AddToCartServlet</url-pattern>
+        <servlet-name>addDevice</servlet-name>
+        <url-pattern>/addDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showDevices</servlet-name>
+        <url-pattern>/showDevices</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateDevice</servlet-name>
+        <url-pattern>/updateDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteDevice</servlet-name>
+        <url-pattern>/deleteDevice</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
+
+
     <session-config>
         <session-timeout>
             30

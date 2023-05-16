@@ -33,70 +33,70 @@
 //import uts.isd.assignment.Staff;
 //
 ///**
-//* 
+//*
 //* @author eric
 //*/
 //
 //public class LoginControllerServlet extends HttpServlet {
 //
 //
-//@Override   
+//@Override
 //
-//protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+//protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {
 //
 //    //1- retrieve the current session
 //    HttpSession session = request.getSession();
-//    //2- create an instance of the Validator class    
+//    //2- create an instance of the Validator class
 //    Validator validator = new Validator();
-//    //3- capture the posted email      
+//    //3- capture the posted email
 //    String email = request.getParameter("email");
-//    //4- capture the posted password    
+//    //4- capture the posted password
 //    String password = request.getParameter("password");
-//    //5- retrieve the manager instance from session      
+//    //5- retrieve the manager instance from session
 //    DBManager manager = (DBManager) session.getAttribute("manager");
-//    
+//
 //    session.setAttribute("customer", null);
 //    session.setAttribute("staff", null);
 //
 //
 //
-//try {       
+//try {
 //    //6- find user by email and password
 //    Customer customer = manager.findCustomer(email, password);
 //    Staff staff = manager.findUser(email, password);
 //
 //
-//} catch (SQLException ex) {           
+//} catch (SQLException ex) {
 //
-//      Logger.getLogger(LoginControllerServlet.class.getName()).log(Level.SEVERE, null, ex);       
+//      Logger.getLogger(LoginControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
 //
 //}
 //
 //
-//if (     /*7-   validate email  */   ) {           
+//if (     /*7-   validate email  */   ) {
 //
-// //8-set incorrect email error to the session           
+// //8-set incorrect email error to the session
 //
-// //9- redirect user back to the login.jsp     
+// //9- redirect user back to the login.jsp
 //
-//} else if ( /*10-   validate password  */ ) {                  
+//} else if ( /*10-   validate password  */ ) {
 //
-// //11-set incorrect password error to the session           
+// //11-set incorrect password error to the session
 //
-// //12- redirect user back to the login.jsp          
+// //12- redirect user back to the login.jsp
 //
-//} else if (user != null) {                     
+//} else if (user != null) {
 //
-// //13-save the logged in user object to the session           
+// //13-save the logged in user object to the session
 //
-// //14- redirect user to the main.jsp     
+// //14- redirect user to the main.jsp
 //
-//} else {                       
+//} else {
 //
-// //15-set user does not exist error to the session           
+// //15-set user does not exist error to the session
 //
-// //16- redirect user back to the login.jsp       
+// //16- redirect user back to the login.jsp
 //
-//}   
+//}
 //
 //}

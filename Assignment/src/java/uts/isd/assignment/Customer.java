@@ -11,12 +11,6 @@ public class Customer {
     private String email;
     private String password;
     private String dob;
-    private String unitNumber;
-    private String streetAddress;
-    private String city;
-    private String state;
-    private String postcode;
-    private String phoneNumber;
 
     public Customer(String name, String email, String password, String dob) {
         this.name = name;

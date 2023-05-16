@@ -20,18 +20,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css"> 
         <title>IOTBAY | | Your Cart</title>
     </head>
     <body>
         <h1>View Cart</h1>
-        <table>
+        <table id="customer">
 
                 <tr>
+                <thead>
                     <th>Product Name</th>
-                    <th>||</th>
                     <th>Quantity</th>
-                    <th>||</th>
                     <th>Total Price</th>
+                  </thead>
                 </tr>
                 <c:forEach items="${orderLine}" var="orderLine">
                     <td>${orderLine.deviceName}</td>
@@ -50,18 +51,21 @@
                     </td>
                     <td>${orderLine.totalPrice}</td>
                 </c:forEach>
+            </table>
             <tr>
-                <td>Total Price:</td>
+                <td>Total Price (exc. gst):</td>
                 <td>${order.totalPrice}<td>
             </tr>
             <tr>
                 <td>GST: </td>
                 <td>${order.tax}</td>
             </tr>
-            </table>
         </table>
-        <form action="ShippingOrderDetailsServlet" method="post">
+        <form action="ConfirmShipping.jsp" method="post">
             <input type="submit" value="Proceed to Shipping Details">
+        </form>
+        <form action="main.jsp" method="post">
+            <input type="submit" value="Cancel">
         </form>
     </body>
 </html>

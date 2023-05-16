@@ -3,24 +3,27 @@
     Created on : 13/05/2023, 3:50:03 PM
     Author     : eric
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page import="java.util.ArrayList"%>
 <%@page import="model.*"%>
 <% 
         Order order = (Order)session.getAttribute("order");
         
-        ArrayList<OrderLine> orderLine = (ArrayList<OrderLine>) session.getAttribute("orderLines");
-        request.setAttribute("orderLines", orderLine);
+        ArrayList<OrderLine> orderLine = (ArrayList<OrderLine>) session.getAttribute("orderLine");
+        request.setAttribute("orderLine", orderLine);
     %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/style.css"> 
         <title>IoTBay || Order Invoice</title>
+        <link rel="stylesheet" href="css/style.css"> 
     </head>
     <body>
         <h1>Order Confirmation</h1>
-        <table>
+        <table id="customer">
             <tr>
                 <td>Order ID: </td>
                 <td>${order.orderID}</td>
@@ -30,7 +33,7 @@
                 <td>${order.orderDate}</td>
             </tr>
             <tr>
-                <td>Shipping Address: </td>
+                <td>Shipping Address: ${order.shippingAddress}</td>
                 <td>${order.shippingAddress}</td>
             </tr>
             <tr>
@@ -44,7 +47,7 @@
                     <th></th>
                     <th>Total Price</th>
                 </tr>
-        <c:forEach items="${orderLines}" var="orderLine">
+        <c:forEach items="${orderLine}" var="orderLine">
             
             <tr>
                 <td>${orderLine.productName}</td> 
@@ -68,5 +71,8 @@
                 <td>${order.totalPrice + order.tax}</td>
             </tr>
             </table>
+            <form action="CustomerOrders.jsp" method="post"> 
+                <input type="submit" value="View Your Order(s)">
+            </form>
     </body>
 </html>

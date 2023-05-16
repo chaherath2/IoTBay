@@ -25,18 +25,23 @@ public class CustomerCartServlet extends HttpServlet {
     @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         HttpSession session = request.getSession();
+        
+        // Retrieve the product ID, user ID, product name, order ID, and price from the request parameters
         int productID = Integer.parseInt(request.getParameter("productID").toString());
         int userID = Integer.parseInt(session.getAttribute("userID").toString());
         String productName = request.getParameter("productName");
         int orderID = Integer.parseInt(session.getAttribute("orderID").toString());
         double price =  Double.parseDouble(request.getParameter("price"));
-      DBOrderLineManager manager = (DBOrderLineManager) session.getAttribute("orderLineManager");
+      
+         // Retrieve the DBOrderLineManager and DBOrderManager objects from the HttpSession
+        DBOrderLineManager manager = (DBOrderLineManager) session.getAttribute("orderLineManager");
         DBOrderManager orderManager = (DBOrderManager) session.getAttribute("orderManager");
         OrderLine orderLine = new OrderLine();
         
         
           
         try {
+             // Find the existing OrderLine object for the given order ID and product ID
             orderLine = manager.findOrderLine(orderID, productID);
             if (orderLine == null) {
                 orderLine = new OrderLine(orderID, 1, productID, productName, price);
@@ -44,7 +49,7 @@ public class CustomerCartServlet extends HttpServlet {
                 manager.addOrderLine(orderLineID,orderID,1,productID,productName, price, price);
                 Order order = orderManager.findOrder(orderID, userID);
                 order.updatePrice(price, 1);
-                request.getRequestDispatcher("product.jsp").include(request, response);
+                request.getRequestDispatcher("device.jsp").include(request, response);
             }
             else {
                 int orderLineID = orderLine.getOrderlineID();

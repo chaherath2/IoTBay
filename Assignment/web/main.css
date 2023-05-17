@@ -1,0 +1,156 @@
+body{
+    background-color:rgba(220,220,220,0.5);
+}
+
+.custom-nav{
+    background-color:rgb(220,220,220);
+    padding:1% 1%;
+}
+
+.navbar-brand{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-link{
+    font-size: 1.5rem;
+}
+
+.carousel-item-custom img{
+    border-radius: 15px;
+    max-height: 60vh;
+    object-fit: contain;
+    width: 100%;
+}
+
+.carousel-inner{
+    padding-left:8%;
+    padding-right:8%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: grey;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) grayscale(1) brightness(0.6);
+}
+
+.carousel-control-prev {
+    padding-right: 15px;
+}
+
+.carousel-control-next {
+    padding-left: 15px;
+}
+
+.button-container{
+    text-align: center;
+}
+
+.button-container a{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.btn{
+    display: inline-block;
+    margin: 2% 2%;
+    width: 300px;
+}
+
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+
+.table th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    padding: .75rem;
+    text-align: inherit;
+}
+
+
+.table td {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+
+.device-table {
+    margin: 1% 1%;
+}
+
+.device-form {
+    margin: 1% 1%;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-input, .form-select {
+    width: 48%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+.device-link {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.device-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.add-device-btn{
+    margin-top: 0;
+    margin-left: 3%;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+

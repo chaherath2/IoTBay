@@ -17,22 +17,24 @@ public class Payment_ViewServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
-    // 获取订单 ID
+    // Get order ID
     Integer orderId = Integer.parseInt(request.getParameter("orderId"));
 
-    // 获取会话对象和数据库管理器
+    
+    // Get session object and database manager
     HttpSession session = request.getSession();
     DBManager manager = (DBManager) session.getAttribute("manager");
 
     try {
-        // 查询支付信息
+
+        // Retrieve payment information
         List<Payment> paymentList = manager.paymentFindPaymentsByOrderId(orderId);
-        // 将支付信息存储到会话中
+       // Store payment information in the session
         session.setAttribute("paymentList", paymentList);
-        // 跳转到支付信息页面
+      // Redirect to payment information page
         request.getRequestDispatcher("Payment_View.jsp").forward(request, response);
     } catch (SQLException ex) {
-        // 处理数据库异常
+        // Handle database exception
         Logger.getLogger(Payment_ViewServlet.class.getName()).log(Level.SEVERE, null, ex);
         session.setAttribute("error", "Failed to retrieve payment information!");
         request.getRequestDispatcher("Payment_Error.jsp").forward(request, response);

@@ -20,40 +20,40 @@ public class Payment_CreateOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // 获取表单参数
+        // Get form parameters
         BigDecimal amount = new BigDecimal(request.getParameter("amount"));
         String cardName = request.getParameter("cardName");
         String cardNo = request.getParameter("cardNo");
         String CVC = request.getParameter("CVC");
 
-        // 获取会话对象和数据库管理器
+        // get session and initialise database manager 
         HttpSession session = request.getSession();
         DBManager manager = (DBManager) session.getAttribute("manager");
 
         try {
-            // 获取订单对象
+            // create an order object 
             Order order = (Order) session.getAttribute("order");
             if (order != null) {
-                // 创建支付对象
+                // insert the required information that the order needs
                 Payment payment = new Payment();
                 payment.setCardName(cardName);
                 payment.setCardNo(cardNo);
                 payment.setCVC(CVC);
                 payment.setAmount(amount);
                 payment.setDate(new Date());
-                // 将支付对象与订单对象关联起来
+                // link the order with the payment
                 order.setPayment(payment);
-                // 将订单对象存储到数据库中
+                // add the order into the database
                 manager.orderAddOrder(order);
-                // 跳转到订单确认页面
+                // send back to the jsp webpage
                 response.sendRedirect("Payment1_OrderCart.jsp");
             } else {
-                // 订单对象不存在，返回错误消息
+                // display an error if the order fails
                 session.setAttribute("error", "Order information not found!");
                 request.getRequestDispatcher("Payment_Error.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
-            // 处理数据库异常
+            // Handle database exceptions
             Logger.getLogger(Payment_CreateServlet.class.getName()).log(Level.SEVERE, null, ex);
             session.setAttribute("error", "Failed to create payment information!");
             request.getRequestDispatcher("Payment_Error.jsp").forward(request, response);

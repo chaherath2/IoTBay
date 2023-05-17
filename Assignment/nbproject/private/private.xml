@@ -6,9 +6,9 @@
             <file>file:/C:/Users/User/Downloads/Assignment/web/cart.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/welcome.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/model/OrderLine.java</file>
+            <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/AddDeviceServlet.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/model/Device.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/DisplaySuccessfulOrder.jsp</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/web/CreateBuyOrder.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/index.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/logout.jsp</file>
@@ -16,25 +16,19 @@
             <file>file:/C:/Users/User/Downloads/Assignment/web/main.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/ConnServlet.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/model/dao/DBDeviceManager.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/CustomerOrders.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/model/dao/DBOrderLineManager.java</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/web/addDevice.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/assignment/Staff.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/CustomerOrderServlet.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/model/Order.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/assignment/Customer.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/model/dao/DBOrderManager.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/register.jsp</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/assignment/CustomerOrder.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/ConfirmShipping.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/ShippingOrderDetailsServlet.java</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/src/java/model/Payment.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/uts/isd/model/dao/DB.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/DeleteOrder.java</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/Payment_CreateOrderServlet.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/DisplayCompletedOrderServlet.java</file>
-            <file>file:/C:/Users/User/Downloads/Assignment/src/java/model/DBpaymentManager.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/src/java/controller/Cart.java</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/login.jsp</file>
             <file>file:/C:/Users/User/Downloads/Assignment/web/css/style.css</file>

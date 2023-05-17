@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="css/style.css"> 
     </head>
     <body>
-        <h1>Order Confirmation</h1>
+        <h1>Order Placed!</h1>
         <table id="customer">
             <tr>
                 <td>Order ID: </td>

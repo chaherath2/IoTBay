@@ -26,6 +26,8 @@ public class OrderLine implements Serializable{
     public OrderLine() {
     }
 
+    
+    //Constructor to create a new order with the provided values
     public OrderLine(int orderID, int quantity, int productID, String productName, double price) {
         this.orderlineID = OrderLine.numberOfOrderLine;
         this.orderID = orderID;
@@ -39,7 +41,7 @@ public class OrderLine implements Serializable{
     }
     
     
-    
+    // Constructor to create an orderLine with the provided values
     public OrderLine(int orderlineID, int orderID, int quantity, int productID, String productName, double totalPrice, double price) {
         this.orderlineID = orderlineID;
         this.orderID = orderID;
@@ -50,6 +52,8 @@ public class OrderLine implements Serializable{
         this.price = price;
     }
 
+    
+    // Getters and setters
     public int getOrderlineID() {
         return orderlineID;
     }
@@ -75,11 +79,13 @@ public class OrderLine implements Serializable{
     }
     
     public void addQuantity() {
+        // Increase the quantity of the order line by 1 and update the total price
         this.quantity++;
         this.totalPrice = this.totalPrice + (quantity*price);
     }
 
     public int decreaseQuantity() {
+         // Decrease the quantity of the order line by 1 and update the total price
         this.quantity--;
         this.totalPrice = this.totalPrice - (quantity*price);
         return this.quantity;

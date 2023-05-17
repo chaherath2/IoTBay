@@ -34,16 +34,16 @@
                     <th>Total Price</th>
                   </thead>
                 </tr>
-                <c:forEach items="${orderLine}" var="orderLine">
-                    <td>${orderLine.deviceName}</td>
-                    <form method ="post" action="addQuantity">
+                <c:forEach items="${orderLine}" var="orderLine"> <!-<!-- loop iterates over the orderLine items and generates table rows for each order line -->
+                    <td>${orderLine.deviceName}</td> <!-<!-- displays the product name for each order line -->
+                    <form method ="post" action="addQuantity"> <!-- Add more of the same items -->
                         <input type ="hidden" name="orderlineID" values ="${orderLine.orderlineID}">
                         <input type ="hidden" name="productID" values ="${orderLine.productID}">
                         <input type="submit" value="Add">
                     </form>
                     <td>${orderLine.quantity}</td>
                     <td>
-                    <form method="post" action="decreaseQuantity">
+                    <form method="post" action="decreaseQuantity"> <!-- Remove the amounts of the same items -->
                     <input type="hidden" name="orderLineID" value="${orderLine.orderlineID}">
                     <input type="hidden" name="productID" value="${orderLine.productID}">
                     <input type="submit" value="Remove">

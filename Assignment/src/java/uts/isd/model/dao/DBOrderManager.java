@@ -36,27 +36,27 @@ public class DBOrderManager {
         }
         return null;
     }
-    
+    // Insert a new row into the ORDERS table with the provided orderID and userID
     public void addOrder(int orderID, int userID) throws SQLException {
         st.executeUpdate("INSERT INTO IOTBAY.ORDERS VALUES ("+orderID+", '" +userID+"', null, null, null, null, null)");
               
         
           
     }
-    
+       // Update an existing row in the ORDERS table with the provided values based on the orderID and userID
     public void updateOrder(int orderID, int userID, String orderDate, double tax, double totalPrice, String shippingAddress, String billingAddress) throws SQLException {
         st.executeUpdate("UPDATE IOTBAY.ORDERS SET ORDERDATE='"+orderDate+"',TAX="+tax+",TOTALPRICE="+totalPrice+",SHIPPINGADDRESS='"+shippingAddress+"',BILLINGADDRESS='"+billingAddress+"' WHERE ORDERID="+orderID + " AND USERID='"+userID+"'");
     }
-    
+    // Delete a row from the ORDERS table based on the orderID
     public void deleteOrder(int orderID) throws SQLException {
         st.executeUpdate("DELETE FROM IOTBAY.ORDERS WHERE ORDERID=" +orderID+"");
     }
-    
+     // Fetch all orders associated with a specific userID from the ORDERS table
     public ArrayList<Order> fetchOrders(int userID) throws SQLException {
         String fetch = "select * from ORDERS where USERID='"+userID+"'";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Order> temp = new ArrayList();
-        
+        // Retrieve the column values from the ResultSet and create Order objects
         while (rs.next()) {
             int orderID = rs.getInt(1);
             String orderDate = rs.getString(3);
